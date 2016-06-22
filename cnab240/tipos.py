@@ -225,7 +225,8 @@ class Arquivo(object):
 
             if header.controlecob_data_gravacao is None:
                 header.controlecob_data_gravacao = self.header.arquivo_data_de_geracao
-   
+            if header.data_credito is None:
+                header.data_credito = self.header.arquivo_data_de_geracao
         lote_cobranca.adicionar_evento(evento)
         # Incrementar numero de registros no trailer do arquivo
         self.trailer.totais_quantidade_registros += len(evento)
